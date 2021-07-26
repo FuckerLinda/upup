@@ -8,7 +8,7 @@ getopt
 
 ## help:
 
-**you can use *<u>upup.py</u>* to capitalise initials in your file.  <u>*upup.py*</u> support .txt .md format and so on**
+**you can use *<u>upup.py</u>* to capitalise initials in each line in your file.  <u>*upup.py*</u> support .txt .md format and so on**
 
 `python3 upup.py -h`
 
