@@ -27,6 +27,6 @@ how to use使用方法:
 
 for example举例:
 
-you can use `python3 upup.py -i ./dictionary.txt -o /new.txt` to capitalise the first letter of each line in your dictionary.txt and output as new.txt.
+you can use `python3 upup.py -i ./dictionary.txt -o /new.txt` to capitalise the first letter of each line in your dictionary.txt and lowercase others and then output as new.txt.
 
-你可以使用`python3 upup.py -i ./dictionary.txt -o /new.txt`来大写你dictionary.txt文件的每一行首字母，并将文件输出为new.txt
+你可以使用 `python3 upup.py -i ./dictionary.txt -o /new.txt` 来大写你dictionary.txt文件的每一行首字母，并让其余字母小写，并将文件输出为new.txt
