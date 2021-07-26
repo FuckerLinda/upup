@@ -10,9 +10,9 @@ getopt
 
 ## help帮助:
 
-**upup** can Read the file line by line and capitalise the first letter of each line. upup supports text formats such as .txt .md etc.
+**upup** can read the file line by line and 'capitalise the first letter of each line and lowercase others'. upup supports text formats such as .txt .md etc.
 
-**upup** 能够逐行读取文件，并大写每一行的首字母。upup支持的文本格式有.txt .md等等
+**upup** 能够逐行读取文件，并“大写每一行的首字母,让其余字母小写”。upup支持的文本格式有.txt .md等等
 
 
 
