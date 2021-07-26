@@ -8,7 +8,7 @@ getopt
 
 ## help:
 
-**you can use *<u>upup.py</u>* to capitalise initials in each line in your file.  <u>*upup.py*</u> support .txt .md format and so on**
+**upup**can Read the file line by line and capitalise the first letter of each line
 
 `python3 upup.py -h`
 
@@ -16,4 +16,4 @@ getopt
 
 for example:
 
-you can use `python3 upup.py -i ./dictionary.txt -o /new.txt` to capitalise initials in your dictionary.txt and output as new.txt.
+you can use `python3 upup.py -i ./dictionary.txt -o /new.txt` to capitalise the first letter of each line in your dictionary.txt and output as new.txt.
