@@ -7,6 +7,7 @@ sys
 getopt
 
 
+<<<<<<< HEAD
 
 ## help帮助:
 
@@ -17,15 +18,22 @@ getopt
 
 
 how to use使用方法:
+=======
+**upup**can Read the file line by line and capitalise the first letter of each line
+>>>>>>> 84c55ed415dcc0ced82bd0f627ed18a32c8189e5
 
 `python3 upup.py -h`
 
 `python3 upup.py -i <inputfile> -o <outputfile>`
 
 
+<<<<<<< HEAD
 
 for example举例:
 
 you can use `python3 upup.py -i ./dictionary.txt -o /new.txt` to capitalise the first letter of each line in your dictionary.txt and output as new.txt.
 
 你可以使用来大写你dictionary.txt文件的每一行首字母，并将文件输出为new.txt
+=======
+you can use `python3 upup.py -i ./dictionary.txt -o /new.txt` to capitalise the first letter of each line in your dictionary.txt and output as new.txt.
+>>>>>>> 84c55ed415dcc0ced82bd0f627ed18a32c8189e5
