@@ -66,7 +66,6 @@ def merge(f1, f2, f3):
         line2 = f2.readlines()
     line3 = []
 
-
     for i in line1:
         if i not in line3:
             line3.append(i)
@@ -77,7 +76,6 @@ def merge(f1, f2, f3):
 
     for i in line3:
         if "\n" not in i:
-            line3.remove(i)
             continue
         f3.write(i)
 
