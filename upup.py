@@ -77,7 +77,9 @@ def merge(f1, f2, f3):
     for i in line3:
         if "\n" not in i:
             continue
+        i=str(i).replace("\n","\r\n")
         f3.write(i)
+
 
 
 
