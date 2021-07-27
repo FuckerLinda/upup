@@ -2,7 +2,10 @@ import sys
 import getopt
 
 
-def gbk(infile,outfile):
+#
+# upup
+#
+def gbk(infile, outfile):
     file = open(infile, "r", encoding="gbk")
     file2 = open(outfile, "w")
     lines = file.readline();
@@ -17,7 +20,8 @@ def gbk(infile,outfile):
         lines = file.readline()
     file.close()
 
-def utf_8(infile,outfile):
+
+def utf_8(infile, outfile):
     file = open(infile, "r", encoding="utf-8")
     file2 = open(outfile, "w")
     lines = file.readline();
@@ -32,46 +36,131 @@ def utf_8(infile,outfile):
         lines = file.readline()
     file.close()
 
+
+#
+# upup
+#
+
+
+
+#
+# merge
+#
+
+def merge(f1, f2, f3):
+    f1 = open(f1, "r")
+    f2 = open(f2, "r")
+    line1 = f1.readlines()
+    line2 = f2.readlines()
+    line3 = []
+
+    for i in line1:
+        if i not in line3:
+            line3.append(i)
+    for i in line2:
+        if line3.count(i) == 0:
+            line3.append(i)
+    f3 = open(f3, "w")
+
+    for i in line3:
+        if "\n" not in i:
+            line3.remove(i)
+            continue
+        f3.write(i)
+
+    """
+    for i in line1:
+        if i not in (line2 or line3):
+            line3.append(i)
+    f3=open(f3,"w")
+    for i in line3:
+        f3.write(i)
+    """
+    f1.close()
+    f2.close()
+    f3.close()
+
+
+#
+# merge
+#
+
+
+
+
+
+
 def main(argv):
     if len(sys.argv) > 1:
-        inputfile="";
-        outputfile="";
-        #参数输入
+        inputfile = "";
+        outputfile = "";
+        mod = 0
+        print("")
+        # 参数输入
         try:
-            opts, args = getopt.getopt(argv, "hi:o:")
-        #无参时
+            opts, args = getopt.getopt(argv, "hi:o:m")
+        # 无参时
         except getopt.GetoptError:
             print('if you need help, try to input "python3 test.py -h"')
             sys.exit(2)
         for opt, arg in opts:
             if opt == '-h':
                 print('python3 test.py -h'
-                  '\n'
-                  '(help)'
-                  '\n'
-                  '\n'
-                  'python3 test.py -i <inputfile> -o <outputfile>'
-                  '\n'
-                  '(capitalise your inputfile and then output)'
-                  '\n')
+                      '\n'
+                      '(help)'
+                      '\n'
+                      '\n'
+                      'python3 test.py -i <inputfile> -o <outputfile>'
+                      '\n'
+                      '(capitalise your inputfile and then output)'
+                      '\n'
+                      '\n'
+                      'python3 upup.py -m <inputfile1> <inputfile2> <outputfile1>\n'
+                      '(merge inputfile1 and inputfile2,and delete the same lines to output a new file.)')
                 sys.exit()
             elif opt in ("-i"):
                 inputfile = arg
+                mod = 1
             elif opt in ("-o"):
                 outputfile = arg
-        print('input：', inputfile)
-        print('output：', outputfile)
+            elif opt in ("-m"):
+                mod = 2
+
+        if mod == 1:
+            print('input：', inputfile)
+            print('output：', outputfile)
+        elif mod == 2:
+            print('input：', args[0], args[1])
+            print('output：', args[2])
+
+        ##upup
+        if mod == 1:
+            try:
+                utf_8(inputfile, outputfile)
+            except:
+                try:
+                    gbk(inputfile, outputfile)
+                except:
+                    print("error:the encoding is nether utf-8 nor gbk")
+        ##upup
+
+        ##merge
+        if mod == 2:
+            f1 = args[0]
+            f2 = args[1]
+            f3 = args[2]
+            try:
+                merge(f1, f2, f3)
+            except:
+                print("error!! WTF!? ")
+                ##merge
+
     else:
         print('if you need help, try to input "python3 test.py -h"')
         sys.exit(2)
-    try:
-        utf_8(inputfile,outputfile)
-    except:
-        try:
-            gbk(inputfile,outputfile)
-        except:
-            print("error:the encoding is nether utf-8 nor gbk")
-    print("finish.")
 
-if __name__=='__main__':
+    print("")
+
+
+if __name__ == '__main__':
     main(sys.argv[1:])
