@@ -23,6 +23,22 @@ how to use使用方法:
 `python3 upup.py -m <inputfile1> <inputfile2> <outputfile1> `<br><br>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 for example举例:
 
 you can use `python3 upup.py -i ./dictionary.txt -o /new.txt` to capitalise the first letter of each line in your dictionary.txt and lowercase others and then output as new.txt.
