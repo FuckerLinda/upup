@@ -48,11 +48,24 @@ def utf_8(infile, outfile):
 #
 
 def merge(f1, f2, f3):
-    f1 = open(f1, "r")
-    f2 = open(f2, "r")
-    line1 = f1.readlines()
-    line2 = f2.readlines()
+    file1=f1
+    file2=f2
+    try:
+        f1 = open(file1, "r")
+        line1 = f1.readlines()
+    except:
+        f1.close()
+        f1 = open(file1, "r",encoding="gbk")
+        line1 = f1.readlines()
+    try:
+        f2 = open(file2, "r")
+        line2 = f2.readlines()
+    except:
+        f2.close()
+        f2 = open(file2, "r",encoding="gbk")
+        line2 = f2.readlines()
     line3 = []
+
 
     for i in line1:
         if i not in line3:
@@ -67,6 +80,8 @@ def merge(f1, f2, f3):
             line3.remove(i)
             continue
         f3.write(i)
+
+
 
     """
     for i in line1:
@@ -140,8 +155,11 @@ def main(argv):
             except:
                 try:
                     gbk(inputfile, outputfile)
-                except:
-                    print("error:the encoding is nether utf-8 nor gbk")
+                except Exception as e:
+                    print("it seems that the encoding is nether utf-8 nor gbk")
+                    print("e:",e)
+                    print("e.with_traceback:",e.with_traceback())
+                    exit(1)
         ##upup
 
         ##merge
@@ -151,8 +169,11 @@ def main(argv):
             f3 = args[2]
             try:
                 merge(f1, f2, f3)
-            except:
+            except Exception as e:
                 print("error!! WTF!? ")
+                print("e:", e)
+                print("e.with_traceback:", e.with_traceback())
+                exit(1)
                 ##merge
 
     else:
